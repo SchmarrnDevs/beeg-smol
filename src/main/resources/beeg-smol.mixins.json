@@ -3,7 +3,7 @@
 	"package": "dev.schmarrn.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"PotionBrewingMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -3,15 +3,14 @@
 	"id": "beeg-smol",
 	"version": "${version}",
 	"name": "Beeg Smol",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "It is a beeg world for us smol people",
 	"authors": [
-		"Me!"
+		"andi-makes"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/SchmarrnDevs/BeegSmol"
 	},
-	"license": "CC0-1.0",
+	"license": "UNLICENSE",
 	"icon": "assets/beeg-smol/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -34,8 +33,5 @@
 		"minecraft": "~1.21",
 		"java": ">=21",
 		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
 	}
 }
