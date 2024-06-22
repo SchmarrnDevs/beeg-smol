@@ -1,5 +1,6 @@
 package dev.schmarrn;
 
+import dev.schmarrn.brewing.CustomBrewingRecipes;
 import dev.schmarrn.components.MyComponents;
 import dev.schmarrn.items.MyItems;
 import net.fabricmc.api.ModInitializer;
@@ -20,6 +21,8 @@ public class BeegSmol implements ModInitializer {
 	public void onInitialize() {
 		MyMobEffects.init();
 		MyComponents.init();
+
+		CustomBrewingRecipes.init();
 
 		MyItems.init();
 	}

@@ -1,11 +1,13 @@
 {
-	"required": true,
-	"package": "dev.schmarrn.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"PotionBrewingMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "dev.schmarrn.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BrewingStandBlockEntityMixin",
+    "BrewingStandMenuMixin",
+    "PotionBrewingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

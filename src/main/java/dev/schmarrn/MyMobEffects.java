@@ -13,7 +13,11 @@ public class MyMobEffects {
     public static final Holder<MobEffect> BEEG = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, BeegSmol.rl("beeg"), new MyMobEffect(MobEffectCategory.NEUTRAL, 0xFF00FF).addAttributeModifier(Attributes.SCALE, BeegSmol.rl("effect.beeg"), 0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
     public static final Holder<MobEffect> SMOL = Registry.registerForHolder(BuiltInRegistries.MOB_EFFECT, BeegSmol.rl("smol"), new MyMobEffect(MobEffectCategory.NEUTRAL, 0xFF00FF).addAttributeModifier(Attributes.SCALE, BeegSmol.rl("effect.smol"), -0.5, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
 
-    public static MobEffectInstance getMobEffectInstance(Holder<MobEffect> effect, int amplifier) {
+    public static final MobEffectInstance BIG_INSTANCE = getMobEffectInstance(BEEG, 0);
+    public static final MobEffectInstance SMALL_INSTANCE = getMobEffectInstance(SMOL, 0);
+    public static final MobEffectInstance SMOL_INSTANCE = getMobEffectInstance(SMOL, 1);
+
+    private static MobEffectInstance getMobEffectInstance(Holder<MobEffect> effect, int amplifier) {
         int duration = -1;
         boolean ambient = false;
         boolean visible = false;

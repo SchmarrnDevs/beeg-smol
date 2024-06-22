@@ -2,14 +2,8 @@ package dev.schmarrn.mixin;
 
 import dev.schmarrn.brewing.IBrewingRecipe;
 import dev.schmarrn.brewing.CustomBrewingRecipes;
-import net.minecraft.core.Holder;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionBrewing;
-import net.minecraft.world.item.alchemy.PotionContents;
-
-import java.util.Optional;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,6 +18,14 @@ public class PotionBrewingMixin {
 	)
 	private boolean bs$isPotionIngredient(boolean original, ItemStack ingredient) {
 		return original || CustomBrewingRecipes.isIngredient(ingredient);
+	}
+
+	@ModifyReturnValue(
+			method = "isContainer",
+			at = @At("RETURN")
+	)
+	private boolean bs$isContainer(boolean original, ItemStack ingredient) {
+		return original || CustomBrewingRecipes.isBasis(ingredient);
 	}
 
 	@ModifyReturnValue(
