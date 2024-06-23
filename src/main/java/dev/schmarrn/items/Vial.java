@@ -3,6 +3,8 @@ package dev.schmarrn.items;
 import dev.schmarrn.components.MobEffectInstancesComponent;
 import dev.schmarrn.components.MyComponents;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -15,10 +17,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Vial extends Item {
-
     public Vial(Properties properties) {
         super(properties);
     }
@@ -35,7 +37,7 @@ public class Vial extends Item {
     }
 
     public static @NotNull ItemStack getWithEffects(List<MobEffectInstance> mes) {
-        ItemStack itemStack = MyItems.POTION.getDefaultInstance();
+        ItemStack itemStack = MyItems.VIAL.getDefaultInstance();
         itemStack.set(MyComponents.MOB_EFFECTS, new MobEffectInstancesComponent(mes));
         return itemStack;
     }
@@ -83,5 +85,15 @@ public class Vial extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         return ItemUtils.startUsingInstantly(level, player, interactionHand);
+    }
+
+    @Override
+    public String getDescriptionId(ItemStack itemStack) {
+        String effect = BuiltInRegistries.MOB_EFFECT.getKey(itemStack.getOrDefault(MyComponents.MOB_EFFECTS, MobEffectInstancesComponent.EMPTY)
+                .effectInstances()
+                .getFirst()
+                .getEffect()
+                .value()).getPath();
+        return this.getDescriptionId() + ".effect." + effect;
     }
 }

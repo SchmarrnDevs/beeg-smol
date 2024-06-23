@@ -1,0 +1,7 @@
+{
+  "item.beeg-smol.vial": "Vial",
+  "item.beeg-smol.vial.effect.beeg": "Vial of Growing",
+  "item.beeg-smol.vial.effect.smol": "Vial of Shrinking",
+  "effect.beeg-smol.beeg": "Growing",
+  "effect.beeg-smol.smol": "Shrinking"
+}

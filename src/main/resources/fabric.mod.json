@@ -22,11 +22,7 @@
 		]
 	},
 	"mixins": [
-		"beeg-smol.mixins.json",
-		{
-			"config": "beeg-smol.client.mixins.json",
-			"environment": "client"
-		}
+		"beeg-smol.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",

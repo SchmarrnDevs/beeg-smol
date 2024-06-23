@@ -33,7 +33,7 @@ public class PotionBrewingMixin {
 		at = @At("RETURN")
 	)
 	private boolean bs$hasPotionMix(boolean original, ItemStack base, ItemStack ingredient) {
-		return original || CustomBrewingRecipes.isBasis(base) && CustomBrewingRecipes.isIngredient(ingredient);
+		return original || CustomBrewingRecipes.isRecipe(base, ingredient);
 	}
 
 	@ModifyReturnValue(

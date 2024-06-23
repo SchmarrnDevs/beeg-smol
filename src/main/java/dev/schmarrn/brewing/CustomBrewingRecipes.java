@@ -6,6 +6,7 @@ import dev.schmarrn.components.MyComponents;
 import dev.schmarrn.items.Vial;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -57,6 +58,15 @@ public class CustomBrewingRecipes {
                 return Vial.getWithEffect(MyMobEffects.SMALL_INSTANCE);
             }
         });
+    }
+
+    public static boolean isRecipe(ItemStack base, ItemStack ingredient) {
+        for (IBrewingRecipe recipe : RECIPES) {
+            if (recipe.isBase(base) && recipe.isIngredient(ingredient)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isIngredient(ItemStack stack) {
