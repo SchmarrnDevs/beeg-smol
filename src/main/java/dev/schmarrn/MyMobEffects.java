@@ -15,7 +15,6 @@ public class MyMobEffects {
 
     public static final MobEffectInstance BIG_INSTANCE = getMobEffectInstance(BEEG, 0);
     public static final MobEffectInstance SMALL_INSTANCE = getMobEffectInstance(SMOL, 0);
-    public static final MobEffectInstance SMOL_INSTANCE = getMobEffectInstance(SMOL, 1);
 
     private static MobEffectInstance getMobEffectInstance(Holder<MobEffect> effect, int amplifier) {
         int duration = -1;

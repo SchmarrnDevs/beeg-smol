@@ -19,6 +19,9 @@
 		],
 		"client": [
 			"dev.schmarrn.BeegSmolClient"
+		],
+		"emi": [
+			"dev.schmarrn.compat.BeegSmolEMIPlugin"
 		]
 	},
 	"mixins": [

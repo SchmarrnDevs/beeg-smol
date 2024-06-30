@@ -4,7 +4,7 @@ import dev.schmarrn.components.MobEffectInstancesComponent;
 import dev.schmarrn.components.MyComponents;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -17,7 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Vial extends Item {
@@ -88,12 +87,20 @@ public class Vial extends Item {
     }
 
     @Override
-    public String getDescriptionId(ItemStack itemStack) {
-        String effect = BuiltInRegistries.MOB_EFFECT.getKey(itemStack.getOrDefault(MyComponents.MOB_EFFECTS, MobEffectInstancesComponent.EMPTY)
-                .effectInstances()
+    public @NotNull String getDescriptionId(ItemStack itemStack) {
+        String descriptionId = this.getDescriptionId();
+        List<MobEffectInstance> mobEffectInstances = itemStack.getOrDefault(MyComponents.MOB_EFFECTS, MobEffectInstancesComponent.EMPTY).effectInstances();
+        if (mobEffectInstances.isEmpty()) {
+            return descriptionId;
+        }
+        ResourceLocation location = BuiltInRegistries.MOB_EFFECT.getKey(mobEffectInstances
                 .getFirst()
                 .getEffect()
-                .value()).getPath();
-        return this.getDescriptionId() + ".effect." + effect;
+                .value());
+        if (location == null) {
+            return descriptionId;
+        }
+        String effect = location.getPath();
+        return descriptionId + ".effect." + effect;
     }
 }
