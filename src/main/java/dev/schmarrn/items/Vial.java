@@ -93,13 +93,17 @@ public class Vial extends Item {
         if (mobEffectInstances.isEmpty()) {
             return descriptionId;
         }
-        ResourceLocation location = BuiltInRegistries.MOB_EFFECT.getKey(mobEffectInstances
-                .getFirst()
-                .getEffect()
-                .value());
+
+        ResourceLocation location = BuiltInRegistries.MOB_EFFECT.getKey(
+                mobEffectInstances
+                        .getFirst()
+                        .getEffect()
+                        .value()
+        );
         if (location == null) {
             return descriptionId;
         }
+
         String effect = location.getPath();
         return descriptionId + ".effect." + effect;
     }

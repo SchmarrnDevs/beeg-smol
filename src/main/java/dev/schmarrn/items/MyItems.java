@@ -13,7 +13,6 @@ public class MyItems {
     public static final Item VIAL = Registry.register(BuiltInRegistries.ITEM, BeegSmol.rl("vial"), new Vial(new Item.Properties().stacksTo(1)));
 
     public static void init() {
-        // no-op
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(entries -> {
             entries.accept(Vial.getWithEffect(MyMobEffects.BIG_INSTANCE));
             entries.accept(Vial.getWithEffect(MyMobEffects.SMALL_INSTANCE));
